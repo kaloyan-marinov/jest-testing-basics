@@ -1,5 +1,11 @@
 const functions = require("../src/functions");
 
+beforeEach(() => initDatabase());
+afterEach(() => closeDatabase());
+
+const initDatabase = () => console.log("initializing database...");
+const closeDatabase = () => console.log("closing database...");
+
 test("should verify that 2 + 2 equals 4", () => {
   expect(functions.add(2, 2)).toBe(4);
 });
