@@ -65,3 +65,19 @@ test(`should _asynchronously_ fetch Leanne Graham's user, via async/await`, asyn
   const data = await functions.fetchUser();
   expect(data.name).toEqual("Leanne Graham");
 });
+
+const nameCheck = () => console.log("checking name...");
+
+describe("checking names", () => {
+  beforeEach(() => nameCheck());
+
+  test("user is John", () => {
+    const user = "John";
+    expect(user).toBe("John");
+  });
+
+  test("user is Mary", () => {
+    const user = "Mary";
+    expect(user).toBe("Mary");
+  });
+});
