@@ -4,7 +4,7 @@ test("should verify that 2 + 2 equals 4", () => {
   expect(functions.add(2, 2)).toBe(4);
 });
 
-test(`should _asynchronously_ fetch Leanne Graham's user`, () => {
+test(`should _asynchronously_ fetch Leanne Graham's user, via Promise`, () => {
   /*
   https://jestjs.io/docs/en/asynchronous >>
   When you have [JavaScript] code that runs asynchronously,
@@ -49,4 +49,10 @@ test(`should _asynchronously_ fetch Leanne Graham's user`, () => {
   return promise.then((data) => {
     expect(data.name).toEqual("Leanne Graham");
   });
+});
+
+test(`should _asynchronously_ fetch Leanne Graham's user, via async/await`, async () => {
+  expect.assertions(1);
+  const data = await functions.fetchUser();
+  expect(data.name).toEqual("Leanne Graham");
 });
