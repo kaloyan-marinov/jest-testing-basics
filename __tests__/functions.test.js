@@ -36,7 +36,7 @@ test(`should _asynchronously_ fetch Leanne Graham's user`, () => {
   */
 
   /* Verify that a certain # of assertions are called */
-  // expect.assertions(1);
+  expect.assertions(1);
 
   const promise = functions.fetchUser();
 
@@ -46,7 +46,7 @@ test(`should _asynchronously_ fetch Leanne Graham's user`, () => {
     the promise returned from [`functions.fetchUser`] resolves.
     and `then()` has a chance to execute [its] callback.
   */
-  promise.then((data) => {
-    expect(data.name).toEqual("_not_ Leanne Graham");
+  return promise.then((data) => {
+    expect(data.name).toEqual("Leanne Graham");
   });
 });
