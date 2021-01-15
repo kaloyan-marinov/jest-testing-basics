@@ -15,8 +15,28 @@ test(`should _asynchronously_ fetch Leanne Graham's user`, () => {
   [Read the link for examples of those several ways.]
   */
 
+  /*
+  If you
+    (a) replace the "Leanne Graham" in instruction #3 with "_not_ Leanne Graham",
+    (b) comment out instruction #1,
+    and (c) remove the `return` from instruction #3,
+  then,
+    even though this test should be a FAIL,
+    it will be marked by Jest as a PASS.
+
+  If you do (a) and (b),
+  then this test should be a FAIL
+  and it will be marked by Jest as such.
+  _Importantly_,
+  the resulting "look" of this test would be exactly aligned
+  with the first Promises example under the link within the previous comment.
+  
+  So, when you are dealing with asynchronous data,
+  make sure you follow the guidelines under the link within the previous comment.
+  */
+
   /* Verify that a certain # of assertions are called */
-  expect.assertions(1);
+  // expect.assertions(1);
 
   const promise = functions.fetchUser();
 
@@ -26,7 +46,7 @@ test(`should _asynchronously_ fetch Leanne Graham's user`, () => {
     the promise returned from [`functions.fetchUser`] resolves.
     and `then()` has a chance to execute [its] callback.
   */
-  return promise.then((data) => {
-    expect(data.name).toEqual("Leanne Graham");
+  promise.then((data) => {
+    expect(data.name).toEqual("_not_ Leanne Graham");
   });
 });
